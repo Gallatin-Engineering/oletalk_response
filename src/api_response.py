@@ -164,12 +164,3 @@ def respond(err, res=None, html=None) -> dict:
         "body": err if err else html if html else json.dumps(res)
     }
 
-    
-#    ********** module execution test **********
-    
-if __name__ == '__main__':
-    pprint(respond(ValueError('Not the expected value.')))
-    pprint(respond(None, res={"name": "Roger", "Age": "46"}))
-    pprint(html_response(200, '<H1>Test passed.</H1>'))
-    pprint(respond(None, html="<head><title>HTML Response!</title></head><body><H1>Test passed.</H1></body>"))
-    

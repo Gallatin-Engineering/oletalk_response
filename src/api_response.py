@@ -25,8 +25,13 @@
 
 
 """
-MODULE: api_response
-=======
+PACKAGE:
+========
+    oletalk_response
+
+Module: 
+-------
+    src/api_response
 
 Classes:
 --------
@@ -34,10 +39,10 @@ Classes:
     
 Functions:
 ----------
-    lambda_response
-    error_response
-    html_response
     respond
+    html_response
+    error_response
+    lambda_response
 
 Exceptions:
 -----------
@@ -51,8 +56,8 @@ from pprint import pprint
 from time import ctime
 
     
-def lambda_response(status_code, msg, **kwargs) -> dict:
-    '''Presents API server responses in standard HTTP format, for all communications sent
+def lambda_response(status_code, message, **kwargs) -> dict:
+    '''Presents the custom OleTalk API Gateway/server responses in standard HTTP format, for all communications sent
     from the API to the client.    \n
     
     Parameters:
@@ -72,7 +77,7 @@ def lambda_response(status_code, msg, **kwargs) -> dict:
             Response to the client's requests in standard HTTP form.  \n
     
     ''' 
-    data = {"message": msg}
+    data = {"message": message}
     for key in kwargs:
         data.update({key: kwargs[key]})
     return {   
@@ -83,10 +88,13 @@ def lambda_response(status_code, msg, **kwargs) -> dict:
     
     
 def html_response(status_code, html) -> dict:
-    '''Responds with html (or web page).    \n
+    '''Responds with html (or web page) as its payload instead of a json object.    \n
     
     Parameter:
     ----------
+        status_code (int/str, req):
+            Standard HTTP Status Codes.     \n
+            
         html (txt, req.): 
             HTML formatted text.    \n
     
@@ -104,16 +112,16 @@ def html_response(status_code, html) -> dict:
         "body": html
     }    
     
-def error_response(error_code, error_msg, **kwargs) -> dict:
+def error_response(error_code, error_message, **kwargs) -> dict:
     '''Presents the Error in the required standard format, 
     or all error communications from the API to the client.    \n
     
     Parameters:
     -----------
         error_code (int, req'd):
-            HTTP code for this error-type.    \n
+            HTTP Status/Error code for this error-type.    \n
             
-        error_msg (str, req'd):
+        error_message (str, req'd):
             HTTP code for the error.    \n
             
         kwargs (dict, opt):
@@ -127,7 +135,7 @@ def error_response(error_code, error_msg, **kwargs) -> dict:
         '''
     #   should trigger logging and custom debugging functions.
     error_data = kwargs
-    error_data.update({"errorMessage": error_msg})
+    error_data.update({"errorMessage": error_message})
     error_data.update({"timestamp": ctime()})
     return {   
         'statusCode': error_code,           #   usually 400 or 500  follows the same convention as http error codes  \n

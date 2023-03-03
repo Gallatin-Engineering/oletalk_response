@@ -1,6 +1,6 @@
  
 # =================================================================================== 
-#    COPYRIGHT (&copy) 2020-2022 GALLATIN ENGINEERING LTD. ALL RIGHTS RESERVED.
+#    COPYRIGHT (&copy) 2020-2023 GALLATIN ENGINEERING LTD. ALL RIGHTS RESERVED.
 # -----------------------------------------------------------------------------------
 #    THE FOLLOWING SOURCE CODE IS THE EXCLUSIVE PROPERTY OF GALLATIN ENGINEERING LTD 
 #    AND SHOULD NOT BE COPIED, SHARED, DISTRIBUTED OR REDISTRIBUTED, WITHOUT THE 
@@ -144,7 +144,7 @@ def error_response(error_code, error_message, **kwargs) -> dict:
     
 #   
     
-def respond(err, res=None, html=None) -> dict:
+def respond(err=None, res=None, html=None) -> dict:
     '''Customizes response using a consistant, standard format for AWS API Gateway/AWS Lambda Functions.     \n     
     
     Parameters:

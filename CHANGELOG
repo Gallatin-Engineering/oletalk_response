@@ -1,5 +1,10 @@
 
 
+0.5.1a:
+-------
+    - rearrange folder hierachy to make it easier to deploy as an AWS Lambda Layer.
+
+
 0.4.2a:
 -------
     - Initialize the error parameter (err) in the respond function to none/null. (ie. err=None)

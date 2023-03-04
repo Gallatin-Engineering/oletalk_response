@@ -1,5 +1,10 @@
 
 
+0.5.2:
+-------
+    - fixed AWS Lambda Layer not finding the module.
+
+
 0.5.1a:
 -------
     - rearrange folder hierachy to make it easier to deploy as an AWS Lambda Layer.

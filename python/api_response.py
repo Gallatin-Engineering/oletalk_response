@@ -14,7 +14,7 @@
 # """Lambda Layer:    'Cross-function library for inter AWS Lambda, and Client <--> API communications.'   \n
 # @Application:       'N/A'       \n
 # @Package:           'None'  \n
-# @Module:            'response_protocol'           \n   
+# @Module:            'api_response'           \n   
 # @Description:       'Python File (module) that contains the functions necessary to generate HTTP responses.    \n
 # @AUTHOR/PROGRAMMER: muddicode/sauceCode                 \n
 # @VERSION:           4.0.0 - Added Features: (@TODO: )    \n
@@ -31,7 +31,7 @@ PACKAGE:
 
 Module: 
 -------
-    src/api_response
+    api_response
 
 Classes:
 --------

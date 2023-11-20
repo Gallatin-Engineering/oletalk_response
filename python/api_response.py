@@ -166,6 +166,10 @@ def respond(err=None, res=None, html=None) -> dict:
     '''
     return {
         "headers": {
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Methods": 'GET,POST,OPTIONS',
+            "Access-Control-Allow-Headers": 'Content-Type',
+            # "Content-Type": "text/html" if html else "application/json"
             "Content-Type": "text/html" if html else "application/json"
         },
         "statusCode": '400' if err else '200',
